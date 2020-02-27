@@ -1,4 +1,13 @@
 {% extends "layout.html" %}
-{% block body_content %}
-<h1>My first flask website</h1>
+{% block body %}
+	<a href="{{ url_for('about') }}">About</a>
+		{% for post in postes %}
+			<div>
+				<h3>{{ post.title }}</h3>
+				<p><b> - First name:</b>{{ post.name.first }}</p>
+				<p><b> - Last name:</b>{{ post.name.last }}</p>
+				<p> -- {{ post.content }}</p>
+			</div>
+		{% endfor %}
+
 {% endblock %}
