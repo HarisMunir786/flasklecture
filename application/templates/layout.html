@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }} - Page</title>
+	</head>
+	<body>
+		<a href ="{{ url_for ('home') }}">HOME</a>
+		<a>&nbsp</a> <a>&nbsp</a> <a>|</a> <a>&nbsp</a> <a>&nbsp</a>
+		<a href ="{{ url_for ('about') }}">ABOUT</a>
+		<a>&nbsp</a> <a>&nbsp</a> <a>|</a> <a>&nbsp</a> <a>&nbsp</a>
+		<a href ="{{ url_for ('register') }}">REGISTER</a>
+		<a>&nbsp</a> <a>&nbsp</a> <a>|</a> <a>&nbsp</a> <a>&nbsp</a>
+		<a href =" {{ url_for ('login') }}">LOGIN</a>
+		{% block body_content %}{% endblock %}
+	</body>
+</html>
