@@ -1,13 +1,12 @@
 from flask import render_template, url_for
 from application import app
-from application.models import Posts
-
-data = []
+from application.models import Post
 
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html', title='Home', posts=data)
+    posts = Post.query.all() 
+    return render_template('home.html', title='Home', posts=posts)
 
 @app.route('/about')
 def about():
