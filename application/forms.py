@@ -36,12 +36,12 @@ class RegisterForm(FlaskForm):
             Email()
         ]
     )
-    password = StringField('Password',
+    password = PasswordField('Password',
         validators = [
             DataRequired()
         ]
     )
-    confirm_password = StringField('Confirm Password',
+    confirm_password = PasswordField('Confirm Password',
         validators = [
             DataRequired(),
             EqualTo('password')

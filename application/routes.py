@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect
 from application import app, db, bcrypt
-from application.models import Post
+from application.models import Post, User
 from application.forms import PostForm, RegisterForm
 
 @app.route('/')
@@ -28,9 +28,18 @@ def post_create():
         return redirect(url_for('home'))
     return render_template('post.html', form=form)
 
-@app.route('/register')
+@app.route('/register', methods = ['GET','POST'])
 def register():
     form = RegisterForm()
+    if form.validate_on_submit():
+        user = User(
+            email = form.email.data,
+            password = bcrypt.generate_password_hash(form.password.data)
+        )
+        db.session.add(user)
+        db.session.commit()
+        print('Create the user')
+        return redirect(url_for('home'))
     return render_template('register.html', form=form)
 
 @app.route('/login')
