@@ -1,11 +1,14 @@
 {% extends "layout.html" %}
 {% block body %}
+<h2>Create your post</h2>
+<br>
 <form method="POST" action="">
 	<div class = "form-group">
 		{{ form.hidden_tag() }}
 	</div>
 	<div class = "form-group">
 		{{ form.first_name.label }}
+		<br>
 		{{ form.first_name }}
 		<div class = "error">
 		{% for error in form.first_name.errors %}
@@ -15,6 +18,7 @@
 	</div>
 	<div class = "form-group">
 		{{ form.last_name.label }}
+		<br>
 		{{ form.last_name }}
                 <div class = "error">
                 	{% for error in form.last_name.errors %}
@@ -24,6 +28,7 @@
 	</div>
 	<div class = "form-group">
 		{{ form.title.label }}
+		<br>
 		{{ form.title }}
                 <div class = "error">
                 	{% for error in form.title.errors %}
@@ -33,14 +38,16 @@
 	</div>
 	<div class = "form-group">
 		{{ form.content.label }}
+		<br>
 		{{ form.content }}
-                <div class = "error">
+		<div class = "error">
         	        {% for error in form.content.errors %}
                 	        <p>{{ error }}</p>
 	                {% endfor %}
                 </div>
 	</div>
 	<div class - "form-group">
+		<br>
 		{{ form.submit }}
 	</div>
 </form>

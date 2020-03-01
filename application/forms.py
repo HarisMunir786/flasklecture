@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Length
 
 class PostForm(FlaskForm):
@@ -28,3 +28,24 @@ class PostForm(FlaskForm):
         ]
     )
     submit = SubmitField('Post!')
+
+class RegisterForm(FlaskForm):
+    email = StringField('Email',
+        validators = [
+            DataRequired(),
+            Length(min=2, max=30)
+        ]
+    )
+    password = StringField('Password',
+        validators = [
+            DataRequired(),
+            Length(min=2, max=30)
+        ]
+    )
+    confirm_password = StringField('Confirm Password',
+        validators = [
+            DataRequired(),
+            Length(min=2, max=100)
+        ]
+    )
+    submit = SubmitField('Register')
