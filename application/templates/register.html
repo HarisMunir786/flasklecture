@@ -10,16 +10,31 @@
                 {{ form.email.label }}
 		<br>
 		{{ form.email }}
+		<div class = "error">
+			{% for error in form.email.errors %}
+				<p>{{ error }}</p>
+			{% endfor %}
+		</div>
         </div>
         <div class = "form-group">
                 {{ form.password.label }}
 		<br>
                 {{ form.password }}
+                <div class = "error">
+                        {% for error in form.password.errors %}
+                                <p>{{ error }}</p>
+                        {% endfor %}
+                </div>
         </div>
         <div class = "form-group">
                 {{ form.confirm_password.label }}
 		<br>
                 {{ form.confirm_password }}
+                <div class = "error">
+                        {% for error in form.confirm_password.errors %}
+                                <p>{{ error }}</p>
+                        {% endfor %}
+                </div>
         </div>
 	<div class="form-group">
 		<br>
